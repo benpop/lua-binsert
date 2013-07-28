@@ -89,7 +89,7 @@ static int bisect_body (lua_State *L) {
                               lua_typename(L, tt)));
         return 0;  /* never reached */
       }
-      else lua_pop(L, 1);
+      else lua_pop(L, 1);  /* pop metafield */
     }
   }
   while (start <= end) {
