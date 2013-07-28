@@ -10,4 +10,6 @@ Based on Python's bisect library.
 	Python-2.7.3/Lib/bisect.py
 	Python-2.7.3/Modules/_bisectmodule.c
 
+Works with both Lua 5.1 and 5.2.
+
 ~~benpop~~
