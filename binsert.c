@@ -67,10 +67,10 @@ static int bisect (lua_State *L) {
       else lua_pop(L, 1);  /* pop metafield */
     }
   }
-  lua_settop(L, CMP);
   /*
   ** 3rd arg is callable?
   */
+  lua_settop(L, CMP);
   tt = lua_type(L, CMP);
   switch (tt) {
     case LUA_TFUNCTION: {
