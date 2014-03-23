@@ -44,10 +44,10 @@ static int cmp_lt (lua_State *L) {
 
 
 static int bisect (lua_State *L) {
-  int start = 1,
-      mid = 1,  /* must be 1 for binsert to insert into empty table */
-      state = 0,  /* insert to the left or right of the element? */
-      end = (luaL_checktype(L, 1, LUA_TTABLE), getn(L, 1));
+  int start = 1;
+  int mid = 1;  /* must be 1 for binsert to insert into empty table */
+  int state = 0;  /* insert to the left or right of the element? */
+  int end = (luaL_checktype(L, 1, LUA_TTABLE), getn(L, 1));
   /*
   ** 2nd arg is comparable?
   */
