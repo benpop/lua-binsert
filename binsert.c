@@ -110,7 +110,7 @@ static int bisect (lua_State *L) {
 
 
 static int binsert (lua_State *L) {
-  bisect(L);
+  bisect(L);  /* leave insertion index on the top of the stack */
   lua_pushvalue(L, TINSERT);
   lua_pushvalue(L, T);
   lua_pushvalue(L, -3);  /* copy index */
