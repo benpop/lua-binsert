@@ -44,7 +44,7 @@ static int cmp_lt (lua_State *L) {
 }
 
 
-static int bisect_body (lua_State *L) {
+static int bisect (lua_State *L) {
   int start = 1,
       mid = 1,  /* must be 1 for binsert to insert into empty table */
       state = 0,  /* insert to the left or right of the element? */
@@ -109,13 +109,8 @@ static int bisect_body (lua_State *L) {
 }
 
 
-static int bisect (lua_State *L) {
-  return bisect_body(L);
-}
-
-
 static int binsert (lua_State *L) {
-  bisect_body(L);
+  bisect(L);
   lua_pushvalue(L, TINSERT);
   lua_pushvalue(L, T);
   lua_pushvalue(L, -3);  /* copy index */
