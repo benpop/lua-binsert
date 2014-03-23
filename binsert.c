@@ -60,10 +60,9 @@ static int bisect_body (lua_State *L) {
     default: {
       if (!luaL_getmetafield(L, V, "__le") &&
           !luaL_getmetafield(L, V, "__lt")) {
-        luaL_argerror(L, V,
+        return luaL_argerror(L, V,
             lua_pushfstring(L, "comparable expected, got %s",
                               lua_typename(L, tt)));
-        return 0;  /* never reached */
       }
       else lua_pop(L, 1);  /* pop metafield */
     }
@@ -84,10 +83,9 @@ static int bisect_body (lua_State *L) {
     }
     default: {
       if (!luaL_getmetafield(L, CMP, "__call")) {
-        luaL_argerror(L, CMP,
+        return luaL_argerror(L, CMP,
             lua_pushfstring(L, "callable expected, got %s",
                               lua_typename(L, tt)));
-        return 0;  /* never reached */
       }
       else lua_pop(L, 1);  /* pop metafield */
     }
