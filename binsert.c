@@ -24,6 +24,9 @@
     lua_insert(L, -(nup)-1);  /* insert under upvalues */ \
     luaL_setfuncs(L, (reg), (nup)); \
   } while (0)
+#ifndef lua_lessthan
+#define lua_lessthan(L,i1,i2) lua_compare(L,(i1),(i2),LUA_OPLT)
+#endif
 #endif
 
 
@@ -35,11 +38,7 @@
 
 
 static int cmp_lt (lua_State *L) {
-#if LUA_VERSION_NUM < 502
   lua_pushboolean(L, lua_lessthan(L, 1, 2));
-#else
-  lua_pushboolean(L, lua_compare(L, 1, 2, LUA_OPLT));
-#endif
   return 1;
 }
 
